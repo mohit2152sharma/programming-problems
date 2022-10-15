@@ -9,7 +9,7 @@ An input string is valide if
 
 from utils.leetcode_tester import TestLeetCode
 
-#TODO: incomplete solution
+
 class Solution:
     def isValid(self, s: str) -> bool:
 
@@ -19,25 +19,30 @@ class Solution:
         length = len(s)
         if length % 2 != 0:
             return False
-        i = 0
 
-        for i in range(length):
-            k = i + 1
-            while k <= length:
-                for o, c in zip(open, close):
-                    if not s[i] == o and s[i + k] == c:
-                        return False
-                k += 2
-        return True
+        stack = []
+        for char in s:
+            if char in open:
+                stack.append(char)
+            elif char in close:
+                close_index = close.index(char)
+                if len(stack) > 0 and open[close_index] == stack[len(stack) - 1]:
+                    stack.pop()
+                else:
+                    return False
+        if len(stack) == 0:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
 
-    test_cases = ["()", "()[]{}", "(]"]
+    test_cases = ["()", "()[]{}", "(]", "([)]"]
 
     tester = TestLeetCode(
         test_cases=test_cases,
         solution=Solution().isValid,
-        expected_output=[True, True, False],
+        expected_output=[True, True, False, False],
     )
     tester.check_results()

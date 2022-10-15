@@ -24,6 +24,7 @@ class TestLeetCode:
         ):
             if result == output:
                 self.passed_test_cases.append(test_case)
+                print(f'test case: {test_case} passed. Result was: {result} and expected output was {output}')
             else:
                 self.failed_test_cases.append(test_case)
                 print(
