@@ -14,7 +14,7 @@ class Solution:
             epsilon = abs(root - starter)
             starter = root
 
-        return int(root)
+        return int(root) #type: ignore
 
 
 if __name__ == "__main__":
