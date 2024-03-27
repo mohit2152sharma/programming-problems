@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "programming-problems"
+version = "0.1.0"
+description = ""
+authors = ["mohit sharma <mohitlakshya@gmail.com>"]
+readme = "README.md"
+packages=[{include="**/*"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

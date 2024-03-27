@@ -14,7 +14,7 @@ class TestLeetCode:
     def run_soln(self) -> List[Any]:
         results = []
         for test in self.test_cases:
-            results.append(self.solution(test))
+            results.append(self.solution(*test))
         return results
 
     def check_results(self):
@@ -24,7 +24,9 @@ class TestLeetCode:
         ):
             if result == output:
                 self.passed_test_cases.append(test_case)
-                print(f'test case: {test_case} passed. Result was: {result} and expected output was {output}')
+                print(
+                    f"test case: {test_case} passed. Result was: {result} and expected output was {output}"
+                )
             else:
                 self.failed_test_cases.append(test_case)
                 print(
