@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     tester = TestLeetCode(
         test_cases=[["abc", "pqr"], ["ab", "pqrs"], ["abcd", "pq"]],
-        solution=Solution().mergeAlternately2,
+        solution=[Solution().mergeAlternately2, Solution().mergeAlternately],
         expected_output=["apbqcr", "apbqrs", "apbqcd"],
     )
     tester.check_results()
