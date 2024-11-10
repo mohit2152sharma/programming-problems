@@ -7,6 +7,6 @@ while read -r line; do
 	last_number=$(echo "$line" | grep -oE "\d" | tail -n 1)
 	x="$first_number""$last_number"
 	((sum += x))
-done <lines.txt
+done <$HOME/github/programming-problems/problems/advent-of-code/2023/1-input.txt
 
 echo $sum

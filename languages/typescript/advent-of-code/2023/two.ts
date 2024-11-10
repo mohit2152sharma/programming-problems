@@ -1,3 +1,4 @@
+// this runs with deno only
 import * as path from "jsr:@std/path" 
 
 // check runtime 

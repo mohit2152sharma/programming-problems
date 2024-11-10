@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const readlines = (filename) => {
-  let filepath = path.join(__dirname, filename);
+  // let filepath = path.join(__dirname, filename);
   return fs
-    .readFileSync(filepath, "utf8", (err, data) => {
+    .readFileSync(filename, "utf8", (err, data) => {
       if (err) {
         console.error(err);
         return;
@@ -14,7 +14,12 @@ const readlines = (filename) => {
     .trim();
 };
 
-let filedata = readlines("lines.txt");
+// pass the input filename as command line argument
+let filename = process.argv.slice(2)[0]
+if (!filename) {
+  throw new Error('Input filename is required with full path')
+} 
+let filedata = readlines(filename);
 let lines = filedata.split("\n");
 let sum = 0;
 
