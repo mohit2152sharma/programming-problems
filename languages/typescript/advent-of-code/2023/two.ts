@@ -1,5 +1,8 @@
+// TODO: Rewrite this, so that it works with new project structure
 // this runs with deno only
-import * as path from "jsr:@std/path" 
+// import * as path from "jsr:@std/path" 
+import * as fs from "fs"
+import * as path from "path"
 
 // check runtime 
 function runtime(): string {
@@ -14,7 +17,7 @@ function runtime(): string {
 
 // for simplicity I will assume that file is running via deno
 function fileContent(filepath: string): string {
-  return Deno.readTextFileSync(filepath).trim()
+  return fs.readFileSync(filepath).toString().trim()
 }
 
 function readLines(fileContent: string): Array<string> {
